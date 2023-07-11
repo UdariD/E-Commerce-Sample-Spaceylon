@@ -12,4 +12,7 @@ public class HomeData extends BaseData {
     @Parsed(field = "Error Message", defaultNullRead = "")
     private String errorMessage;
 
+    @Parsed(field = "Search Input", defaultNullRead = "")
+    private String searchInput;
+
 }

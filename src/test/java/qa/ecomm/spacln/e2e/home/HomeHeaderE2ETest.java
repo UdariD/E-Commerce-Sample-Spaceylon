@@ -9,6 +9,7 @@ import qa.ecomm.spacln.data.home.HomeData;
 import qa.ecomm.spacln.data.login.LoginData;
 import qa.ecomm.spacln.e2e.BaseE2ETest;
 import qa.ecomm.spacln.ui.page.home.HomePage;
+import qa.ecomm.spacln.ui.page.home.SearchResultPage;
 import qa.ecomm.spacln.ui.page.login.LoginPage;
 
 import java.lang.reflect.Method;
@@ -54,5 +55,23 @@ public class HomeHeaderE2ETest extends BaseE2ETest {
     public void testLoginIconClick(final HomeData data){
         LoginPage loginPage = homePage.open().clickOnLoginIcon();
         assertThat(loginPage.getPageHeader().equals("My account"));
+    }
+
+   /* Temp - hold stuck at no element found exception
+    @Test(  testName = "TC-Home-2",
+            dataProvider = "homeData",
+            groups = {"smoke", "regression"})
+    public void testSerchBar(final HomeData data){
+        SearchResultPage resultPage= homePage.open().typeSearchWord(data.getSearchInput());
+        assertThat(resultPage.getPageHeader().contains("Displaying results for"));
+    }
+    */
+
+    @Test(  testName = "TC-Menu-1",
+            dataProvider = "homeData",
+            groups = {"smoke", "regression"})
+    public void testSubMenuNavigation(final HomeData data){
+        SearchResultPage resultPage = homePage.open().clickOnSubMenuBabyCare();
+        assertThat(resultPage.getSubMenuNavigationPath().contains("Bath & Body"));
     }
 }
