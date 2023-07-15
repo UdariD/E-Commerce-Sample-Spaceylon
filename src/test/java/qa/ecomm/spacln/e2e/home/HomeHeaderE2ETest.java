@@ -1,5 +1,6 @@
 package qa.ecomm.spacln.e2e.home;
 
+import org.testng.Assert;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -12,6 +13,7 @@ import qa.ecomm.spacln.ui.page.home.HomePage;
 import qa.ecomm.spacln.ui.page.home.SearchResultPage;
 import qa.ecomm.spacln.ui.page.login.LoginPage;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -49,6 +51,28 @@ public class HomeHeaderE2ETest extends BaseE2ETest {
         }
     }
 
+    @Test(testName = "TC-Com-1")
+    public void findAllBrokenLinks(){
+        int brokenCount=0;
+        try {
+             brokenCount= homePage.open().verifyLinks();
+        } catch (IOException e) {
+            throw new RuntimeException (e);
+        }
+        assertThat(0).isEqualTo(brokenCount);
+    }
+
+    @Test(testName = "TC-Com-2")
+    public void findAllBrokenImages(){
+        int brokenCount=0;
+        try {
+            brokenCount= homePage.open().verifyImages ();
+        } catch (IOException e) {
+            throw new RuntimeException (e);
+        }
+        assertThat(0).isEqualTo(brokenCount);
+    }
+
     @Test(  testName = "TC-Home-1",
             dataProvider = "homeData",
             groups = {"smoke", "regression"})
@@ -61,7 +85,7 @@ public class HomeHeaderE2ETest extends BaseE2ETest {
     @Test(  testName = "TC-Home-2",
             dataProvider = "homeData",
             groups = {"smoke", "regression"})
-    public void testSerchBar(final HomeData data){
+    public void testSearchBar(final HomeData data){
         SearchResultPage resultPage= homePage.open().typeSearchWord(data.getSearchInput());
         assertThat(resultPage.getPageHeader().contains("Displaying results for"));
     }
