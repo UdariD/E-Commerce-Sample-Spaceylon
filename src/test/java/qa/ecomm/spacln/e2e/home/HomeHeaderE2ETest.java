@@ -11,6 +11,7 @@ import qa.ecomm.spacln.data.login.LoginData;
 import qa.ecomm.spacln.e2e.BaseE2ETest;
 import qa.ecomm.spacln.ui.page.home.HomePage;
 import qa.ecomm.spacln.ui.page.home.SearchResultPage;
+import qa.ecomm.spacln.ui.page.home.ShopPage;
 import qa.ecomm.spacln.ui.page.login.LoginPage;
 
 import java.io.IOException;
@@ -24,10 +25,12 @@ public class HomeHeaderE2ETest extends BaseE2ETest {
     private static final String FILE_PATH = "home/home.csv";
 
     private HomePage homePage;
+    private ShopPage shopPage;
 
     @Override
     public void initialize() {
         homePage = createInstance(HomePage.class);
+        shopPage = createInstance(ShopPage.class);
     }
 
     @DataProvider(name = "homeData")
@@ -73,6 +76,11 @@ public class HomeHeaderE2ETest extends BaseE2ETest {
         assertThat(0).isEqualTo(brokenCount);
     }
 
+    @Test(testName = "TC-Com-3")
+    public void shopItemOrderBy()
+    {
+        shopPage.open().changeOrderBy();
+    }
     @Test(  testName = "TC-Home-1",
             dataProvider = "homeData",
             groups = {"smoke", "regression"})

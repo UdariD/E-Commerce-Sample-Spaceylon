@@ -1,0 +1,4 @@
+Test Case ID,Test Case Description , Error Message,Search Input
+TC-Home-1,Click on the Login/Register link(Icon) should redirect to 'My Account' page , Menu navigaion failed.
+TC-Home-2,Enter the search keyword in the search bar should redirect to 'Search results ...' page ,Failed to fetch the search results.,Rose
+TC-Menu-1,Navigate to 'Baby Care' -> 'Bath & Baby' should redirect to 'Bath & Baby' sub page ,Failed to navigates.,Rose
