@@ -4,10 +4,13 @@ E Commerce sample project with Selenium &amp; Java
 
 When testing an e-commerce website or application, there are several important test cases to consider. Here are some common test cases for e-commerce testing:
 
+**Common functionlaties**
+1. Find Broken Links & Images <i> - done</i>
+
 **User Registration:**
 
 1. Verify that users can successfully register with valid information.
-2. Verify that appropriate error messages are displayed for invalid or missing information.
+2. Verify that appropriate error messages are displayed for invalid or missing information. <i> - done</i>
 3. Check if the system prevents registration with duplicate email addresses or usernames.
    
 **Login and Authentication:**
