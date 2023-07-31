@@ -1,0 +1,2 @@
+Test Case ID,Test Case Description,First name,Last name,Phone ,Username ,Email address,Password,Is Subscribe,Error Message
+TC-REG-1,User Registration process with valid data, Kalana , Dissanayake ,0764429367, kalanadis@gmail.com , Isu@0272246098 , Y ,OK
