@@ -32,6 +32,34 @@ public class LoginPage extends BasePage {
     @FindBy(name="login")
     private WebElement btnLogin;
 
+
+    //**************************************  Register section **********************
+
+    @FindBy(id="reg_billing_first_name")
+    private WebElement firstName;
+
+    @FindBy(id="reg_billing_last_name")
+    private WebElement lastName;
+
+    @FindBy(id="reg_billing_phone")
+    private WebElement phone;
+
+    @FindBy(id="reg_username")
+    private WebElement userName;
+
+    @FindBy(id="reg_email")
+    private WebElement emailAddress;
+
+    @FindBy(id="reg_password")
+    private WebElement password;
+
+    @FindBy(id="mailchimp_woocommerce_newsletter")
+    private WebElement isSubscribe;
+
+    @FindBy(name="register")
+    private WebElement regButton;
+
+
     public LoginPage open() {
         driver.get(ConfigurationManager.config().myAccountUrl());
         return this;
@@ -40,14 +68,12 @@ public class LoginPage extends BasePage {
     public LoginPage typeUsername(final String username) {
         txtUsername.clear();
         txtUsername.sendKeys(username);
-
         return this;
     }
 
     public LoginPage typePassword(final String password) {
         txtPassword.clear();
         txtPassword.sendKeys(password);
-
         return this;
     }
 
@@ -76,4 +102,43 @@ public class LoginPage extends BasePage {
         return BasePageFactory.createInstance(driver, HomePage.class);
     }
 
+    //**************************************  Register actions **********************
+
+    public LoginPage typeFirstLastname(final String firstname , final String lastname) {
+        firstName.clear();
+        firstName.sendKeys(firstname);
+        lastName.clear();
+        lastName.sendKeys(lastname);
+        return this;
+    }
+
+    public LoginPage typePhone(final String phoneNum) {
+        phone.clear();
+        phone.sendKeys(phoneNum);
+        return this;
+    }
+
+    public LoginPage typeEmail(final String string) {
+        emailAddress.clear();
+        emailAddress.sendKeys(string);
+        return this;
+    }
+    public LoginPage typeUserNameReg(final String string) {
+        userName.clear();
+        userName.sendKeys(string);
+        return this;
+    }
+    public LoginPage typePasswordReg(final String string) {
+        password.clear();
+        password.sendKeys(string);
+        return this;
+    }
+
+    public String getWelcomeMessage() {
+        return driver.findElement(By.xpath("/html/body/div[2]/div[1]/div[2]/div/div/p[1]")).getText();
+    }
+    public LoginPage clickOnRegister() {
+        regButton.click();
+        return BasePageFactory.createInstance(driver, LoginPage.class);
+    }
 }
