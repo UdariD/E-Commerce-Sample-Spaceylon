@@ -78,3 +78,6 @@ When testing an e-commerce website or application, there are several important t
 4. Verify that error messages, notifications, and prompts are clear and user-friendly.
 
 _These are some of the essential test cases for e-commerce testing, but the actual test cases may vary based on the specific requirements and functionalities of the e-commerce platform being tested._
+
+References : 
+https://www.techlistic.com/2020/06/automate-ecommerce-website.html
